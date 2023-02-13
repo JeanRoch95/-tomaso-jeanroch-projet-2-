@@ -8,12 +8,20 @@ import java.util.List;
 import java.util.HashMap;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
+
+    private String outPutFilePath;
+
+    public WriteSymptomDataToFile(String outPutFilePath)
+    {
+        this.outPutFilePath = outPutFilePath;
+    }
+
     @Override
     public void writeSymptoms(Map<String, Integer> symptoms) {
         try {
-                FileWriter write = new FileWriter("result.out");
+                FileWriter write = new FileWriter(outPutFilePath);
                     for (Map.Entry<String, Integer> ent : symptoms.entrySet()) {
-                        write.write(ent.getKey() + ": " + ent.getValue() + "\n");
+                        write.write(ent.getKey() + " : " + ent.getValue() + "\n");
                     }
                 write.close();
 

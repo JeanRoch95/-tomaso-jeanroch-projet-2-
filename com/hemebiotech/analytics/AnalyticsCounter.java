@@ -39,15 +39,6 @@ public class AnalyticsCounter {
   }
 
   public void writeSymptoms(Map<String, Integer> symptoms) {
+		writer.writeSymptoms(sortSymptoms(countSymptoms(getSymptoms())));
   }
-
-
-
-
-
-  
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-	}
 }
