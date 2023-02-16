@@ -1,5 +1,7 @@
 package com.hemebiotech.analytics;
 
+import java.util.Map;
+import java.util.List;
 
 public class Main {
 
@@ -11,10 +13,10 @@ public class Main {
     ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
     ISymptomWriter writer = new WriteSymptomDataToFile("result.out");
     AnalyticsCounter analyticsCounter = new AnalyticsCounter(reader, writer);
-    writer.writeSymptoms(
-        analyticsCounter.sortSymptoms(
-            analyticsCounter.countSymptoms(
-                analyticsCounter.getSymptoms()
-                )));
+    List<String> symptomsList = analyticsCounter.getSymptoms();
+    Map<String, Integer> countSymptoms = analyticsCounter.countSymptoms(symptomsList);
+    Map<String, Integer> sortSymptoms = analyticsCounter.sortSymptoms(countSymptoms);
+
+    analyticsCounter.writeSymptoms(sortSymptoms);
   }
 }

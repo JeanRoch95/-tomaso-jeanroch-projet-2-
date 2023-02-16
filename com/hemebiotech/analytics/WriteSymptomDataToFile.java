@@ -10,6 +10,11 @@ import java.util.Map;
 public class WriteSymptomDataToFile implements ISymptomWriter {
 
   private String outPutFilePath;
+  /**
+   * String.
+   *
+   * @param outPutFilePath a full or partial path to file where symptoms will write
+  */
 
   public WriteSymptomDataToFile(String outPutFilePath) {
     this.outPutFilePath = outPutFilePath;
